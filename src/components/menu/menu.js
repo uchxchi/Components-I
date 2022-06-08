@@ -62,11 +62,4 @@ menuItems.forEach((item) => {
 })
 
 
-// let arrayLoop = menuDiv.querySelectorAll('u')
-// const realArray = Array.from(arrayLoop)
-// menuItems.forEach((item) => {
-//   realArray.textContent = menuItems
-// })
-// console.log(realArray)
- 
 
