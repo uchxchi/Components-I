@@ -7,8 +7,8 @@ let menuItems = [
   "What's New",
   'Tech Trends',
   'Music',
-  'Log Out'
-];
+  'Log Out',
+]
 
 /*
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
@@ -40,6 +40,28 @@ let menuItems = [
 //   uList.appendChild(list)
 // }
 // console.log(menuMaker())
- 
 
+const menuMaker = (menuItems) => {
+  const menuBar = document.createElement('div')
+  menuBar.classList.add('menu')
 
+  const ul = document.createElement('ul')
+
+  menuBar.appendChild(ul)
+  menuItems.forEach((item) => {
+    const li = document.createElement('li')
+    li.textContent = item
+    ul.appendChild(li)
+  })
+
+  let button = document.getElementsByClassName('menu-button')
+  button[0].addEventListener('click', () => {
+    menuBar.classList.toggle('menu--open')
+  })
+
+  return menuBar
+}
+
+const header = document.querySelector('.header')
+let bar = menuMaker(menuItems)
+header.appendChild(bar)
