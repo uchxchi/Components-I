@@ -7,8 +7,8 @@ let menuItems = [
   "What's New",
   'Tech Trends',
   'Music',
-  'Log Out'
-];
+  'Log Out',
+]
 
 /*
   Step 1: Write a component called 'menuMaker' to create a menu like the markup below:
@@ -32,3 +32,36 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+// function menuMaker(){
+//   const menuDiv = document.createElement('div')
+//   const uList = document.createElement('ul')
+//   const list = document.createElement('li')
+//   menuDiv.appendChild(uList)
+//   uList.appendChild(list)
+// }
+// console.log(menuMaker())
+
+const menuMaker = (menuItems) => {
+  const menuBar = document.createElement('div')
+  menuBar.classList.add('menu')
+
+  const ul = document.createElement('ul')
+
+  menuBar.appendChild(ul)
+  menuItems.forEach((item) => {
+    const li = document.createElement('li')
+    li.textContent = item
+    ul.appendChild(li)
+  })
+
+  let button = document.getElementsByClassName('menu-button')
+  button[0].addEventListener('click', () => {
+    menuBar.classList.toggle('menu--open')
+  })
+
+  return menuBar
+}
+
+const header = document.querySelector('.header')
+let bar = menuMaker(menuItems)
+header.appendChild(bar)
