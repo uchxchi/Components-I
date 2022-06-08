@@ -87,6 +87,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: 'Uche\'s addition',
+    date: 'June 8th 2022',
+    firstParagraph: 'Hello world',
+    secondParagraph: 'This is me adding stuff',
+    thirdParagraph: 'Why? Because i was asked to. Byeeee.'
   }
 ];
 
@@ -115,26 +122,29 @@ const data = [
   Step 5: Try adding new article object to the data array. Make sure it is in the same format as the others.
   Refresh the page to see the new article.
 */
-function articleMaker(title, date){
+function articleMaker(article){
   const articleDiv = document.createElement('div');
   articleDiv.classList.add('article')
 
   const h2 = document.createElement('h2')
-  h2.textContent = title
-
+  h2.textContent = article.title
+  
+const date = document.createElement('p')
+date.classList.add('date')
+date.textContent = article.date
   const paragraph1 = document.createElement('p')
   paragraph1.classList.add = ('date')
-  paragraph1.textContent = date
+  paragraph1.textContent = article.firstParagraph
 
 
   const paragraph2 = document.createElement('p')
   paragraph2.classList.add = ('date')
-  paragraph2.textContent = date
+  paragraph2.textContent = article.secondParagraph
 
 
   const paragraph3 = document.createElement('p')
   paragraph3.classList.add = ('date')
-  paragraph3.textContent = date
+  paragraph3.textContent = article.thirdParagraph
 
 
   const span = document.createElement('span')
@@ -142,6 +152,7 @@ function articleMaker(title, date){
   span.textContent = '+'
 
   articleDiv.appendChild(h2)
+  articleDiv.appendChild(date)
   articleDiv.appendChild(paragraph1)
   articleDiv.appendChild(paragraph2)
   articleDiv.appendChild(paragraph3)
@@ -149,18 +160,19 @@ function articleMaker(title, date){
 
   span.addEventListener('click', () => {
     span.classList.toggle('article-open')
-    pDiv.classList.toggle('toggle-on')
+    articleDiv.classList.toggle('article-open')
+  
   })
 
   return articleDiv
 
 }
-console.log(articleMaker())
+// console.log(articleMaker())
  const pDiv = document.querySelector('.articles')
 
-data.forEach(function(item) {
-  let {title, date, firstParagraph, secondParagraph, thirdParagraph} = item
-  let newA = articleMaker(title, date, firstParagraph, secondParagraph, thirdParagraph)
+data.forEach((item) => {
+  // let {title, date, firstParagraph, secondParagraph, thirdParagraph} = item
+  let newA = articleMaker(item)
   pDiv.appendChild(newA)
 
 })
