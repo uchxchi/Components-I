@@ -36,28 +36,15 @@ function menuMaker(menuItem){
   const menuDiv = document.createElement('div')
   menuDiv.classList.add('menu')
   const uList = document.createElement('ul')
-  const list = document.createElement('li')
-  const list2 = document.createElement('li')
-  const list3 = document.createElement('li')
-  const list4 = document.createElement('li')
-  const list5 = document.createElement('li')
-  const list6 = document.createElement('li')
   
-  function listItem (item){
-    for(let i = 0; i < menuItems.length; i++){
-      let list = item.menuItems[i];
-      list = uList.querySelectorAll('li')
-      console.log(list)
-    }
-  }
+  menuItems.forEach((item) => {
+    const li = document.createElement('li')
+    li.textContent = item
+    uList.appendChild(li)
+  })
 
   menuDiv.appendChild(uList)
-  uList.appendChild(list)
-  uList.appendChild(list2)
-  uList.appendChild(list3)
-  uList.appendChild(list4)
-  uList.appendChild(list5)
-  uList.appendChild(list6)
+  
 
 
 const menuButton = document.querySelector('.menu-button')
